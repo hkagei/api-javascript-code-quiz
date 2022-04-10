@@ -31,7 +31,8 @@ function countdown() {
       }
     }, 1000);
   }
-  
+var question1 = document.getElementById('question1');
+  question1.textContent = questions[0].question;
 
 //save_score.addEventListener("click", function() {})
     
