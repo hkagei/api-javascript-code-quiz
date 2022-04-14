@@ -1,5 +1,10 @@
-var timerEl = document.querySelector("#timeLeft")
-var startQuiz = document.querySelector("#start-quiz")
+var quizStatus = true;
+var timerEl = document.querySelector("#timeLeft");
+var highscore =  100;
+var question1 = document.getElementById('question1');
+var startbtn = document.querySelector("#start-quiz")
+var currentQuestion = 0;
+var answer1 = document.querySelector("#answer1");
 
 
 var questions = [
@@ -32,13 +37,38 @@ var questions = [
     },
 
 ];
-var question1 = document.getElementById('question1');
+// Need to create a function for startQuiz
 
-question1.textContent = questions[0].question;
+
+function startQuiz(){
+
+var startscreen = document.getElementById('start');
+startscreen.setAttribute("class", "hide");
+
+question1.removeAttribute("class");
+
+// question1.textContent = questions[0].question;
+
+// var question = document.getElementById("question")
+// questions.textContent = "abc"
+
+questionLoop()
+
+
+};
+
+function questionLoop() {
+  if (currentQuestion < questions.length) {
+    question1.textContent = questions[currentQuestion].question
+    answer1.setAttribute("class");
+  }
+  // need an event listener for each question click onclick
+}
 
 // function that will start the quiz
-startQuiz.addEventListener("click", function(){
+startbtn.addEventListener("click", function(){
     countdown();
+    startQuiz();
 })
 function countdown() {
     var timeLeft = 45;
@@ -61,10 +91,12 @@ function countdown() {
         // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
         // Call the `displayMessage()` function
-        displayMessage();
+        // displayMessage();
       }
     }, 1000);
   }
+
+startbtn.onclick = startQuiz
 
 //save_score.addEventListener("click", function() {})
     

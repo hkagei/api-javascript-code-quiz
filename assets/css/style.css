@@ -69,6 +69,10 @@ header {
      gap: 10px 10px;
      font-family: 'Verdana';font-size: 22px;
  }
+
+ .hide {
+     display: none;
+ }
  
  
  #questionDisplay {
@@ -78,6 +82,11 @@ header {
      grid-row: 1 / span 5;
      place-self: center;
      font-size: 30px;
+ }
+
+ .hideElement {
+     display: none;
+     
  }
 
  #finalScoreDisplay {

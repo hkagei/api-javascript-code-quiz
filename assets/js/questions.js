@@ -1,8 +1,8 @@
 var questions = [
     {
-        question: "You can use the Boolean function to find out if an expression or variable is true",
-        choices: ["True", "False"],
-        answer: "True"
+        question: "The condition statement if/else is enclosed with the following:",
+        choices: ["Parentheses", "Curly Brackets", "Quotes", "Square Brackets"],
+        answer: "Parentheses"
 
     },
     {
@@ -10,5 +10,20 @@ var questions = [
         choices: ["Numbers and strings", "Booleans", "Other arrays", "All of the above"],
         answer: "All of the above"
 
+    },
+    {
+        question: "Commonly used datatypes include the following, except _____.",
+        choices: ["Strings", "Boolean", "Alerts", "Numbers"],
+        answer: "Alerts"
+    },
+    {
+        question: "A very useful tool to debug arrays is:",
+        choices: ["Javascript", "Terminal/Bash", "For Loops", "Console Log"],
+        answer: "For Loops"
+    },
+    {
+        question: "Strings must be enclosed with",
+        choices: ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
+        answer: "Quotes"
     },
 ]
