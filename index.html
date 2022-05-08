@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Merienda' rel='stylesheet'>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Hiro's API Code Quiz!</title>
-</head>
+    <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Verdana"
+            rel="stylesheet"
+          />
+          <link rel="stylesheet" href="./assets/css/style.css" />
+          <title>Hiro's API Code Quiz!</title>
+        </head>
 
 <body>
     <header>
@@ -20,30 +24,26 @@
     </header>
 
     <section id="mainDiv">
-        <div id="gridContainer">
-            <div id="start">
-                <p id="questionDisplay">Welcome to Hiro's code Quiz!</p>
-                <p id="finalScoreDisplay"></p>
-                <p id="enterInitials"></p>
-                <textarea id=enterInitialsTextArea></textarea>
-                <button class="btn" id="start-quiz">Start Quiz</button>
-            </div>
-            <div class="hide" id="question1">
-                <button class="btn" id="answer1"></button>
-                <button class="btn" id="answer2"></button>
-                <button class="btn" id="answer3"></button>
-                <button class="btn" id="answer4"></button>
-                <button class="btn" id="submitScore"></button>
-            </div>
+        <div>
+          <h1 id="questionDisplay">Welcome to Hiro's code Quiz! Current Score:<span id='score'>0</span></h1>
+        </div>    
+          <textarea class="hideElement" id="enterInitialsTextArea"></textarea>
+          <button class="btn" id="start-quiz">Start Quiz</button>
+        
+          <h2 id="question"></h2>
+          <!--added this container for your buttons. Target this in your event listener for the answer button clicks the element is set to hidden with the hideElement class
+          you can use this class to hide elements then use javascript to unhide them when you want to see them-->
+          <div class="buttonContainer hideElement">
+            <button class="btn" id="answer1"></button>
+            <button class="btn" id="answer2"></button>
+            <button class="btn" id="answer3"></button>
+            <button class="btn" id="answer4"></button>
+          </div>
         </div>
-        <div id="answerCorrectWrongGrid"></div>
-        <p id=answerCorrectWrong></p>
-        </div>
-
+      </div>
     </section>
 
     <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/questions.js"></script>
 
 </body>
 

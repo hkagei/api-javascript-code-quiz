@@ -1,105 +1,137 @@
+
+
 var quizStatus = true;
 var timerEl = document.querySelector("#timeLeft");
 var highscore =  100;
-var question1 = document.getElementById('question1');
+var question = document.getElementById('question');
+var currentScore = document.getElementById('score');
+var buttonContainer = document.querySelector(".buttonContainer");
+var answer1 = document.querySelector("#answer1");
+var answer2 = document.querySelector("#answer2");
+var answer3 = document.querySelector("#answer3");
+var answer4 = document.querySelector("#answer4");
 var startbtn = document.querySelector("#start-quiz")
 var currentQuestion = 0;
-var answer1 = document.querySelector("#answer1");
-
+var score = 0;
 
 var questions = [
     {
         question: "The condition statement if/else is enclosed with the following:",
         choices: ["Parentheses", "Curly Brackets", "Quotes", "Square Brackets"],
-        answer: "Parentheses"
-
+        answer: 0
     },
     {
         question: "Arrays in JavaScript can be used to store _____.",
         choices: ["Numbers and strings", "Booleans", "Other arrays", "All of the above"],
-        answer: "All of the above"
-
+        answer: 3
     },
     {
         question: "Commonly used datatypes include the following, except _____.",
         choices: ["Strings", "Boolean", "Alerts", "Numbers"],
-        answer: "Alerts"
+        answer: 2
     },
     {
         question: "A very useful tool to debug arrays is:",
         choices: ["Javascript", "Terminal/Bash", "For Loops", "Console Log"],
-        answer: "For Loops"
+        answer: 2
     },
     {
         question: "Strings must be enclosed with",
         choices: ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
-        answer: "Quotes"
+        answer: 2
     },
 
 ];
-// Need to create a function for startQuiz
 
-
-function startQuiz(){
-
-var startscreen = document.getElementById('start');
-startscreen.setAttribute("class", "hide");
-
-question1.removeAttribute("class");
-
-// question1.textContent = questions[0].question;
-
-// var question = document.getElementById("question")
-// questions.textContent = "abc"
-
-questionLoop()
-
-
-};
-
-function questionLoop() {
-  if (currentQuestion < questions.length) {
-    question1.textContent = questions[currentQuestion].question
-    answer1.setAttribute("class");
-  }
-  // need an event listener for each question click onclick
+function setQuestion(n) {
+  question.textContent = questions[n].question;
+  
+  answer1.textContent = questions[n].choices[0];
+  answer2.textContent = questions[n].choices[1];
+  answer3.textContent = questions[n].choices[2];
+  answer4.textContent = questions[n].choices[3];
 }
 
-// function that will start the quiz
-startbtn.addEventListener("click", function(){
-    countdown();
-    startQuiz();
-})
-function countdown() {
-    var timeLeft = 45;
-  
-    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function () {
-      // As long as the `timeLeft` is greater than 1
-      if (timeLeft > 1) {
-        // Set the `textContent` of `timerEl` to show the remaining seconds
-        timerEl.textContent = timeLeft + ' seconds remaining';
-        // Decrement `timeLeft` by 1
-        timeLeft--;
-      } else if (timeLeft === 1) {
-        // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-        timerEl.textContent = timeLeft + ' second remaining';
-        timeLeft--;
-      } else {
-        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-        timerEl.textContent = '';
-        // Use `clearInterval()` to stop the timer
-        clearInterval(timeInterval);
-        // Call the `displayMessage()` function
-        // displayMessage();
-      }
-    }, 1000);
+function checkAnswer(answer) {
+  // console.log(currentQuestion, questions[currentQuestion])
+  if (questions[currentQuestion].answer == answer) {
+    score++;
+    currentScore.textContent = score;
   }
+  currentQuestion++;
+  setQuestion(currentQuestion);
+  startQuiz();
+}
 
-startbtn.onclick = startQuiz
+function scoreQuiz() {
+  buttonContainer.classList.add("hideElement");
+  alert(`You scored ${currentScore} out of ${questions.length}`);
+  startBtn.textContent = "Restart Quiz"
+}
 
-//save_score.addEventListener("click", function() {})
-    
+function startQuiz() {
+  console.log(currentQuestion, questions.length-1)
+  if (currentQuestion < questions.length-1) {
 
+    // setQuestion(currentQuestion)
 
-var saveScore
+    answer1.addEventListener("click", function() {
+      checkAnswer(0);
+    });
+    answer2.addEventListener("click", function() {
+      checkAnswer(1);
+    });
+    answer3.addEventListener("click", function() {
+      checkAnswer(2); 
+    });
+    answer4.addEventListener("click", function() {
+      checkAnswer(3);
+    });
+
+  }
+  else {
+    scoreQuiz();
+  }
+};
+
+function countdown() {
+  var timeLeft = 45;
+
+  // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+  var timeInterval = setInterval(function () {
+    // As long as the `timeLeft` is greater than 1
+    if (timeLeft > 1) {
+      // Set the `textContent` of `timerEl` to show the remaining seconds
+      timerEl.textContent = timeLeft + ' seconds remaining';
+      // Decrement `timeLeft` by 1
+      timeLeft--;
+    } else if (timeLeft === 1) {
+      // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
+      timerEl.textContent = timeLeft + ' second remaining';
+      timeLeft--;
+    } else {
+      // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+      timerEl.textContent = '';
+      // Use `clearInterval()` to stop the timer
+      clearInterval(timeInterval);
+      // Call the `displayMessage()` function
+      // displayMessage();
+      scoreQuiz();
+    }
+  }, 1000);
+}
+
+// Need to create a function for startQuiz
+// function that will start the quiz
+startbtn.addEventListener("click", function() {
+  currentQuestion = 0;
+  currentScore = 0;
+  //this removes the hideElement class from the buttonContainer when the quiz starts and shows the buttons
+  buttonContainer.classList.remove("hideElement");
+  setQuestion(currentQuestion);
+  countdown();
+  startQuiz();
+});
+
+//save_score.addEventListener("click", function() {});
+
