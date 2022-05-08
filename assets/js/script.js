@@ -53,46 +53,63 @@ function setQuestion(n) {
 }
 
 function checkAnswer(answer) {
-  // console.log(currentQuestion, questions[currentQuestion])
+  console.log(`currentQuestion: ${currentQuestion}, correctAnswer: ${questions[currentQuestion].answer}, givenAnswer: ${answer}`)
   if (questions[currentQuestion].answer == answer) {
     score++;
     currentScore.textContent = score;
   }
   currentQuestion++;
   setQuestion(currentQuestion);
-  startQuiz();
 }
 
 function scoreQuiz() {
+  question.textContent = '';
   buttonContainer.classList.add("hideElement");
   alert(`You scored ${currentScore} out of ${questions.length}`);
-  startBtn.textContent = "Restart Quiz"
+  startbtn.textContent = "Restart Quiz"
 }
 
 function startQuiz() {
-  console.log(currentQuestion, questions.length-1)
-  if (currentQuestion < questions.length-1) {
+  // console.log(currentQuestion, questions.length-1)
 
-    // setQuestion(currentQuestion)
 
-    answer1.addEventListener("click", function() {
+  // setQuestion(currentQuestion)
+
+  answer1.addEventListener("click", function() {
+    if (currentQuestion < questions.length-1) {
       checkAnswer(0);
-    });
-    answer2.addEventListener("click", function() {
+    }
+    else {
+      scoreQuiz();
+    }
+  });
+  answer2.addEventListener("click", function() {
+    if (currentQuestion < questions.length-1) {
       checkAnswer(1);
-    });
-    answer3.addEventListener("click", function() {
-      checkAnswer(2); 
-    });
-    answer4.addEventListener("click", function() {
+    }
+    else {
+      scoreQuiz();
+    }
+  });
+  answer3.addEventListener("click", function() {
+    if (currentQuestion < questions.length-1) {
+      checkAnswer(2);
+    }
+    else {
+      scoreQuiz();
+    }
+  });
+  answer4.addEventListener("click", function() {
+    if (currentQuestion < questions.length-1) {
       checkAnswer(3);
-    });
+    }
+    else {
+      scoreQuiz();
+    }
+  });
 
-  }
-  else {
-    scoreQuiz();
-  }
-};
+}
+
 
 function countdown() {
   var timeLeft = 45;
