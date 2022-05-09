@@ -120,6 +120,7 @@ function countdown() {
       timerEl.textContent = '';
       // Use `clearInterval()` to stop the timer
       clearInterval(timeInterval);
+      alert("Time is up!");
       // Call the `displayMessage()` function
       // displayMessage();
       scoreQuiz();
@@ -145,8 +146,11 @@ restartbtn.addEventListener("click", function() {
 });
 
 function populateScores() {
+  console.log(localStorage.getItem("highScores"))
+
   var highScores = localStorage.getItem("highScores");
   if (highScores) highScores = highScores.split(",").map(x => x.split(":"));
+  console.log(highScores);
   var table = document.getElementById('highScores').getElementsByTagName('tbody')[0];
 
   // // this empties the table
