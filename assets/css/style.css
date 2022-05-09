@@ -5,7 +5,8 @@
 }
 
 body {
-    font-family: 'Verdana';font-size: 22px;
+    font-family: 'Verdana';
+    font-size: 22px;
     background-color: white;
 }
 
@@ -20,7 +21,8 @@ header {
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    font-family: 'Verdana';font-size: 22px;
+    font-family: 'Verdana';
+    font-size: 22px;
 }
 
 .btnHeader {
@@ -28,17 +30,15 @@ header {
     background-color: white;
     text-decoration: none;
     border: 0;
-    outline: 0; /* Remove border around button */
+    outline: 0;
+    /* Remove border around button */
     color: purple;
-    font-family: 'Verdana';font-size: 20px;
+    font-family: 'Verdana';
+    font-size: 20px;
 }
 
 .btnHeader:hover {
-
     background-color: lavender;
-    
-  
-    
 }
 
 .btn {
@@ -47,7 +47,8 @@ header {
     outline: 0;
     background-color: purple;
     color: lavender;
-    font-family: 'Verdana';font-size: 10px;
+    font-family: 'Verdana';
+    font-size: 10px;
 }
 
 #mainDiv {
@@ -58,86 +59,113 @@ header {
     flex-direction: column;
     justify-content: center;
     margin-top: 50px;
-    font-family: 'Verdana';font-size: 22px;
+    font-family: 'Verdana';
+    font-size: 22px;
+}
+
+#results {
+    margin-left: 25%;
+    margin-right: 25%;
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    font-family: 'Verdana';
+    font-size: 22px;
 }
 
 #gridContainer {
- 
-     display: grid;
-     grid-template-columns: repeat(2, 1fr) 2fr 1fr;
-     grid-template-rows: repeat(10, 1fr);
-     gap: 10px 10px;
-     font-family: 'Verdana';font-size: 22px;
- }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 2fr 1fr;
+    grid-template-rows: repeat(10, 1fr);
+    gap: 10px 10px;
+    font-family: 'Verdana';
+    font-size: 22px;
+}
 
- .hide {
-     display: none;
- }
- 
- 
- #questionDisplay {
-     text-align: center;
-     align-self: baseline;
-     grid-column: 2 / span 2;
-     grid-row: 1 / span 5;
-     place-self: center;
-     font-size: 30px;
- }
+.show {
+    display: flex;
+}
 
- .hideElement {
-     display: none;
-     
- }
+.hide {
+    display: none;
+}
+.hideElement {
+    display: none;
+}
 
- #finalScoreDisplay {
-    
+#questionDisplay {
+    text-align: center;
+    align-self: baseline;
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 5;
+    place-self: center;
+    font-size: 30px;
+}
+
+#finalScoreDisplay {
     grid-column: 1 / span 2;
     grid-row: 6 / span 1;
     font-size: 15px;
 }
 
-
-
 #enterInitials {
-    
     grid-column: 1 / span 1;
     grid-row: 7 / span 1;
     font-size: 15px;
+    place-self: center;
 }
 
 
 #enterInitialsTextArea {
-    
     grid-column: 2 / span 1;
     grid-row: 7 / span 1;
     font-size: 15px;
     resize: none;
-    
 }
 
-#submitScore {
+#submitScore, #clearScores {
     grid-column: 3 / span 1;
     grid-row: 7 / span 1;
     padding: 10px 10px 10px 10px;
     border-radius: 10%;
     border: 0;
-    outline: 0; /* Remove border around button */
+    outline: 0;
+    /* Remove border around button */
     background-color: purple;
     color: lavender;
-    font-family: 'Verdana';font-size: 15px;
+    place-self: center;
+    font-family: 'Verdana';
+    font-size: 15px;
 }
- 
-#start-quiz {
+
+#start-quiz, #restart-quiz {
     grid-column: 2 / span 2;
     grid-row: 5 / span 1;
     padding: 10px 10px 10px 10px;
     border-radius: 10%;
     border: 0;
-    outline: 0; /* Remove border around button */
+    outline: 0;
+    /* Remove border around button */
     background-color: purple;
     place-self: center;
     color: lavender;
-    font-family: 'Verdana';font-size: 15px;
+    font-family: 'Verdana';
+    font-size: 15px;
+}
+
+#saveScore {
+    padding: 10px 10px 10px 10px;
+    border-radius: 10%;
+    border: 0;
+    outline: 0;
+    /* Remove border around button */
+    background-color: purple;
+    place-self: center;
+    color: lavender;
+    font-family: 'Verdana';
+    font-size: 15px;
 }
 
 #answer1 {
@@ -146,10 +174,12 @@ header {
     padding: 10px 10px 10px 10px;
     border-radius: 10%;
     border: 0;
-    outline: 0; /* Remove border around button */
+    outline: 0;
+    /* Remove border around button */
     background-color: purple;
     color: lavender;
-    font-family: 'Verdana';font-size: 15px;
+    font-family: 'Verdana';
+    font-size: 15px;
     margin-left: 25px;
 }
 
@@ -159,10 +189,12 @@ header {
     padding: 10px 10px 10px 10px;
     border-radius: 10%;
     border: 0;
-    outline: 0; /* Remove border around button */
+    outline: 0;
+    /* Remove border around button */
     background-color: purple;
     color: lavender;
-    font-family: 'Verdana';font-size: 15px;
+    font-family: 'Verdana';
+    font-size: 15px;
     margin-left: 25px;
     margin-left: 25px;
 
@@ -174,10 +206,12 @@ header {
     padding: 10px 10px 10px 10px;
     border-radius: 10%;
     border: 0;
-    outline: 0; /* Remove border around button */
+    outline: 0;
+    /* Remove border around button */
     background-color: purple;
     color: lavender;
-    font-family: 'Verdana';font-size: 15px;
+    font-family: 'Verdana';
+    font-size: 15px;
     margin-left: 25px;
 }
 
@@ -187,51 +221,58 @@ header {
     padding: 10px 10px 10px 10px;
     border-radius: 10%;
     border: 0;
-    outline: 0; /* Remove border around button */
+    outline: 0;
+    /* Remove border around button */
     background-color: purple;
     color: lavender;
-    font-family: 'Verdana';font-size: 15px;
+    font-family: 'Verdana';
+    font-size: 15px;
     margin-left: 25px;
 }
 
 
-#answer1:hover{
-    
+#answer1:hover {
+
     background-color: lavender;
-     
+    color: purple;
+
 }
 
-#answer2:hover{
-    
+#answer2:hover {
+
     background-color: lavender;
-  
+    color: purple;
+
 }
 
-#answer3:hover{
-    
+#answer3:hover {
+
     background-color: lavender;
-  
+    color: purple;
+
 }
 
-#answer4:hover{
-    
+#answer4:hover {
+
     background-color: lavender;
-  
+    color: purple;
+
 }
 
-#submitScore:hover{
-    
+#submitScore:hover {
+
     background-color: lavender;
-  
+
 }
 
 #answerCorrectWrongGrid {
-   
+
     display: grid;
     grid-template-columns: 4fr;
     grid-template-rows: repeat(2, 1fr);
     gap: 10px 10px;
-    font-family: 'Verdana';font-size: 22px;
+    font-family: 'Verdana';
+    font-size: 22px;
 
 }
 
@@ -239,41 +280,46 @@ header {
     text-align: left;
     grid-column: 1 / span 4;
     grid-row: 1 / span 2;
-    
+
 }
 
 @media screen and (max-width: 768px) {
 
 
-    
-    #answer1:hover{
-        
-        background-color: purple;
-        
+
+    #answer1:hover {
+
+        background-color: lavender;
+        color: purple;
+
+
     }
 
-    #answer2:hover{
-        
-        background-color: purple;
-    
+    #answer2:hover {
+
+        background-color: lavender;
+        color: purple;
+
     }
 
-    #answer3:hover{
-        
-        background-color: purple;
-    
+    #answer3:hover {
+
+        background-color: lavender;
+        color: purple;
+
     }
 
-    #answer4:hover{
-        
-        background-color: purple;
-    
+    #answer4:hover {
+
+        background-color: lavender;
+        color: purple;
+
     }
 
-    #submitScore:hover{
-        
+    #submitScore:hover {
+
         background-color: purple;
-    
+
     }
 
 
@@ -281,60 +327,60 @@ header {
     #questionDisplay {
         font-size: 25px;
     }
-    
+
     #answer1 {
         grid-column: 2 / span 2;
     }
-    
+
     #answer2 {
         grid-column: 2 / span 2;
-           
+
     }
-    
+
     #answer3 {
         grid-column: 2 / span 2;
     }
-    
+
     #answer4 {
         grid-column: 2 / span 2;
     }
-    
-  
+
+
 
 }
 
 
 
-@media screen and  (max-width: 575px) {
+@media screen and (max-width: 575px) {
 
-    #answer1:hover{
-        
+    #answer1:hover {
+
         background-color: purple;
-        
+
     }
 
-    #answer2:hover{
-        
+    #answer2:hover {
+
         background-color: purple;
-    
+
     }
 
-    #answer3:hover{
-        
+    #answer3:hover {
+
         background-color: purple;
-    
+
     }
 
-    #answer4:hover{
-        
+    #answer4:hover {
+
         background-color: purple;
-    
+
     }
 
-    #submitScore:hover{
-        
+    #submitScore:hover {
+
         background-color: purple;
-    
+
     }
 
 
@@ -347,6 +393,6 @@ header {
         grid-column: 2 / span 2;
         font-size: 15px;
     }
-  
 
-  }
+
+}
